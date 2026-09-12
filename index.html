@@ -78,6 +78,205 @@
     .sidebar .search input {
       border-radius: 6px;
     }
+    /* 制作日誌（Gitログ）タイムラインスタイル */
+    .git-blog-timeline {
+      position: relative;
+      margin: 35px 0 20px 10px;
+      padding-left: 26px;
+      border-left: 2px solid #e2e8f0;
+    }
+    .git-blog-item {
+      position: relative;
+      margin-bottom: 26px;
+    }
+    .git-blog-item:last-child {
+      margin-bottom: 10px;
+    }
+    .git-blog-dot {
+      position: absolute;
+      left: -33px;
+      top: 14px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--theme-color, #2c5282);
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 2px #cbd5e0;
+    }
+    .git-blog-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: box-shadow 0.15s ease;
+    }
+    .git-blog-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+    }
+    .git-blog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .git-blog-date {
+      font-size: 0.85rem;
+      color: #718096;
+      font-weight: 500;
+    }
+    .git-blog-sha {
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      font-size: 0.78rem;
+      background: #edf2f7;
+      color: #4a5568 !important;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-decoration: none !important;
+      border: 1px solid #e2e8f0;
+      transition: background 0.2s;
+    }
+    .git-blog-sha:hover {
+      background: #e2e8f0;
+    }
+    .git-blog-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #1a365d;
+      line-height: 1.5;
+      margin: 4px 0 0 0;
+      word-break: break-word;
+    }
+    .git-blog-body {
+      margin-top: 10px;
+      color: #4a5568;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      white-space: pre-wrap;
+      background: #f8fafc;
+      border-left: 3px solid #cbd5e0;
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      word-break: break-word;
+    }
+    .git-blog-footer {
+      text-align: center;
+      margin: 30px 0 60px 0;
+    }
+    .git-blog-btn {
+      background-color: var(--theme-color, #2c5282);
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 24px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 2px 4px rgba(44, 82, 130, 0.2);
+    }
+    .git-blog-btn:hover {
+      background-color: #1a365d;
+      transform: translateY(-1px);
+    }
+    .git-blog-btn:active {
+      transform: translateY(0);
+    }
+    .git-blog-loading {
+      color: #718096;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .git-blog-spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #cbd5e0;
+      border-top-color: var(--theme-color, #2c5282);
+      border-radius: 50%;
+      animation: gitBlogSpin 0.7s linear infinite;
+    }
+    @keyframes gitBlogSpin {
+      to { transform: rotate(360deg); }
+    }
+    .git-blog-end {
+      color: #a0aec0;
+      font-size: 0.9rem;
+    }
+    .git-blog-error {
+      color: #c53030;
+      background: #fff5f5;
+      border: 1px solid #feb2b2;
+      padding: 12px 18px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-align: left;
+      line-height: 1.6;
+    }
+    /* 該当ページへのジャンプボタン */
+    .git-blog-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 6px 14px;
+      background: #ebf8ff;
+      color: #2b6cb0 !important;
+      border: 1px solid #bee3f8;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none !important;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .git-blog-link-btn:hover {
+      background: #bee3f8;
+      color: #2c5282 !important;
+      transform: translateX(3px);
+    }
+    .git-blog-check-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 10px;
+      padding: 4px 10px;
+      background: #f7fafc;
+      color: #718096;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .git-blog-check-btn:hover {
+      background: #edf2f7;
+      color: #4a5568;
+    }
+    /* 節へのフォーカス時の発光アニメーション */
+    @keyframes gitFocusPulse {
+      0% {
+        background-color: rgba(254, 240, 138, 0.95);
+        box-shadow: 0 0 0 8px rgba(254, 240, 138, 0.6);
+        border-radius: 4px;
+      }
+      60% {
+        background-color: rgba(254, 240, 138, 0.5);
+        box-shadow: 0 0 0 4px rgba(254, 240, 138, 0.3);
+      }
+      100% {
+        background-color: transparent;
+        box-shadow: none;
+      }
+    }
+    .git-focus-highlight {
+      animation: gitFocusPulse 3.5s ease-out forwards;
+    }
   </style>
 </head>
 <body>
@@ -128,5 +327,334 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
   <!-- 前後の章ページ送り機能 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- 制作日誌（Gitログ）ブログプラグイン -->
+  <script>
+    (function () {
+      var GITHUB_REPO = 'daijir/isaiah';
+
+      // コミット詳細のファイルを非同期確認するグローバル関数
+      window.__checkCommitFiles = function(btn, sha) {
+        btn.disabled = true;
+        btn.textContent = '確認中...';
+        
+        var cacheKey = 'git_commit_files_' + sha;
+        var cached = null;
+        try {
+          var raw = sessionStorage.getItem(cacheKey);
+          if (raw) cached = JSON.parse(raw);
+        } catch (e) {}
+
+        function handleFiles(files) {
+          var mdFiles = (files || []).filter(function(f) {
+            return f.filename && f.filename.endsWith('.md') && f.filename !== 'README.md' && f.filename !== '_sidebar.md' && f.filename !== 'blog.md';
+          });
+
+          if (mdFiles.length === 0) {
+            btn.outerHTML = '<span style="color: #a0aec0; font-size: 0.82rem; margin-top: 10px; display: inline-block;">（マークダウン章ファイルの変更はありません）</span>';
+            return;
+          }
+
+          var linksHtml = '<div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px;">';
+          mdFiles.forEach(function(f) {
+            var match = f.filename.match(/^(\d{2})\.md$/);
+            if (match) {
+              var chapNum = parseInt(match[1], 10);
+              var url = '#/' + match[1];
+              var lbl = '第' + chapNum + '章を開く';
+              linksHtml += '<a class="git-blog-link-btn" href="' + url + '">📖 ' + lbl + ' →</a>';
+            } else {
+              linksHtml += '<a class="git-blog-link-btn" href="#/' + f.filename + '">📄 ' + f.filename + ' →</a>';
+            }
+          });
+          linksHtml += '</div>';
+          btn.outerHTML = linksHtml;
+        }
+
+        if (cached) {
+          handleFiles(cached);
+          return;
+        }
+
+        fetch('https://api.github.com/repos/' + GITHUB_REPO + '/commits/' + sha)
+          .then(function(res) {
+            if (!res.ok) throw new Error();
+            return res.json();
+          })
+          .then(function(data) {
+            try { sessionStorage.setItem(cacheKey, JSON.stringify(data.files || [])); } catch (e) {}
+            handleFiles(data.files);
+          })
+          .catch(function() {
+            btn.disabled = false;
+            btn.textContent = '確認に失敗しました（再試行）';
+          });
+      };
+
+      function extractTarget(message) {
+        if (!message) return null;
+        // 1. "1:21" や "1:22-24" などの節指定（全角・半角対応）
+        var verseMatch = message.match(/(\d{1,2})[：:](\d{1,2})/);
+        if (verseMatch) {
+          var chap = parseInt(verseMatch[1], 10);
+          var v = parseInt(verseMatch[2], 10);
+          if (chap >= 1 && chap <= 66) {
+            var chapPadded = ('0' + chap).slice(-2);
+            return {
+              chapter: chap,
+              padded: chapPadded,
+              verse: v,
+              label: '第' + chap + '章（' + v + '節へフォーカス）'
+            };
+          }
+        }
+
+        // 2. "１章" "1章" "第1章" などの章指定
+        var chapMatch = message.match(/(?:第\s*)?([0-9０-９]{1,2})\s*章/);
+        if (chapMatch) {
+          var rawNum = chapMatch[1].replace(/[０-９]/g, function(s) {
+            return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+          });
+          var c = parseInt(rawNum, 10);
+          if (c >= 1 && c <= 66) {
+            var cPadded = ('0' + c).slice(-2);
+            return {
+              chapter: c,
+              padded: cPadded,
+              verse: null,
+              label: '第' + c + '章を開く'
+            };
+          }
+        }
+
+        // 3. "01.md" などのファイル名直接言及
+        var fileMatch = message.match(/(\d{1,2})\.md/i);
+        if (fileMatch) {
+          var f = parseInt(fileMatch[1], 10);
+          if (f >= 1 && f <= 66) {
+            var fPadded = ('0' + f).slice(-2);
+            return {
+              chapter: f,
+              padded: fPadded,
+              verse: null,
+              label: '第' + f + '章を開く'
+            };
+          }
+        }
+
+        return null;
+      }
+
+      function gitBlogPlugin(hook, vm) {
+        var PER_PAGE = 10;
+        var currentPage = 1;
+        var isLoading = false;
+        var allLoaded = false;
+
+        function escapeHtml(text) {
+          if (!text) return '';
+          return text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+        }
+
+        function formatDate(isoStr) {
+          var d = new Date(isoStr);
+          if (isNaN(d.getTime())) return isoStr || '';
+          var year = d.getFullYear();
+          var month = ('0' + (d.getMonth() + 1)).slice(-2);
+          var day = ('0' + d.getDate()).slice(-2);
+          var hours = ('0' + d.getHours()).slice(-2);
+          var minutes = ('0' + d.getMinutes()).slice(-2);
+          return year + '年' + month + '月' + day + '日 ' + hours + ':' + minutes;
+        }
+
+        function renderCommitItem(commitData) {
+          var commit = commitData.commit || {};
+          var fullMessage = commit.message || '';
+          var lines = fullMessage.split('\n');
+          var title = lines[0].trim();
+          var bodyLines = lines.slice(1).join('\n').trim();
+
+          var authorInfo = commit.author || commit.committer || {};
+          var dateStr = formatDate(authorInfo.date);
+          var shaShort = (commitData.sha || '').substring(0, 7);
+          var commitUrl = commitData.html_url || ('https://github.com/' + GITHUB_REPO + '/commit/' + commitData.sha);
+
+          // リンクまたは確認ボタンの生成
+          var target = extractTarget(fullMessage);
+          var actionHtml = '';
+          if (target) {
+            var targetUrl = '#/' + target.padded;
+            if (target.verse) {
+              targetUrl += '?verse=' + target.verse;
+            }
+            actionHtml = '<a class="git-blog-link-btn" href="' + targetUrl + '">📖 ' + escapeHtml(target.label) + ' →</a>';
+          } else {
+            actionHtml = '<button class="git-blog-check-btn" onclick="window.__checkCommitFiles(this, \'' + commitData.sha + '\')">📄 変更されたページを確認</button>';
+          }
+
+          var html = '<div class="git-blog-item">';
+          html += '  <div class="git-blog-dot"></div>';
+          html += '  <div class="git-blog-card">';
+          html += '    <div class="git-blog-header">';
+          html += '      <span class="git-blog-date">📅 ' + escapeHtml(dateStr) + '</span>';
+          html += '      <a class="git-blog-sha" href="' + escapeHtml(commitUrl) + '" target="_blank" rel="noopener noreferrer" title="GitHubでコミットを確認">#' + escapeHtml(shaShort) + ' ↗</a>';
+          html += '    </div>';
+          html += '    <div class="git-blog-title">' + escapeHtml(title) + '</div>';
+          if (bodyLines) {
+            html += '    <div class="git-blog-body">' + escapeHtml(bodyLines) + '</div>';
+          }
+          html += '    <div class="git-blog-actions">' + actionHtml + '</div>';
+          html += '  </div>';
+          html += '</div>';
+          return html;
+        }
+
+        function loadCommits(container, page) {
+          if (isLoading || allLoaded) return;
+          isLoading = true;
+
+          var loadingEl = container.querySelector('#git-blog-loading');
+          var loadMoreBtn = container.querySelector('#git-blog-loadmore');
+          var endEl = container.querySelector('#git-blog-end');
+          var errorEl = container.querySelector('#git-blog-error');
+          var listEl = container.querySelector('#git-blog-list');
+
+          if (loadingEl) loadingEl.style.display = 'flex';
+          if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+          if (errorEl) errorEl.style.display = 'none';
+
+          var cacheKey = 'git_blog_isaiah_p' + page;
+          var cachedData = null;
+          try {
+            var raw = sessionStorage.getItem(cacheKey);
+            if (raw) {
+              var parsed = JSON.parse(raw);
+              if (parsed.timestamp && (Date.now() - parsed.timestamp < 10 * 60 * 1000)) {
+                cachedData = parsed.data;
+              }
+            }
+          } catch (e) {}
+
+          var handleData = function(data) {
+            isLoading = false;
+            if (loadingEl) loadingEl.style.display = 'none';
+
+            if (!Array.isArray(data) || data.length === 0) {
+              allLoaded = true;
+              if (endEl) endEl.style.display = 'block';
+              return;
+            }
+
+            var htmlChunk = '';
+            for (var i = 0; i < data.length; i++) {
+              htmlChunk += renderCommitItem(data[i]);
+            }
+            if (listEl) {
+              listEl.insertAdjacentHTML('beforeend', htmlChunk);
+            }
+
+            if (data.length < PER_PAGE) {
+              allLoaded = true;
+              if (endEl) endEl.style.display = 'block';
+            } else {
+              if (loadMoreBtn) loadMoreBtn.style.display = 'inline-block';
+            }
+          };
+
+          if (cachedData) {
+            handleData(cachedData);
+            return;
+          }
+
+          fetch('https://api.github.com/repos/' + GITHUB_REPO + '/commits?per_page=' + PER_PAGE + '&page=' + page)
+            .then(function (res) {
+              if (!res.ok) {
+                if (res.status === 403) {
+                  throw new Error('GitHub APIの利用上限に達しました。しばらく経ってから再度お試しください。');
+                }
+                throw new Error('コミットの取得に失敗しました (HTTP ' + res.status + ')');
+              }
+              return res.json();
+            })
+            .then(function (data) {
+              try {
+                sessionStorage.setItem(cacheKey, JSON.stringify({
+                  timestamp: Date.now(),
+                  data: data
+                }));
+              } catch (e) {}
+              handleData(data);
+            })
+            .catch(function (err) {
+              isLoading = false;
+              if (loadingEl) loadingEl.style.display = 'none';
+              if (errorEl) {
+                errorEl.textContent = err.message || 'エラーが発生しました。';
+                errorEl.style.display = 'block';
+              }
+            });
+        }
+
+        hook.doneEach(function () {
+          // 1. ブログページの描画
+          var container = document.getElementById('git-blog-container');
+          if (container) {
+            currentPage = 1;
+            isLoading = false;
+            allLoaded = false;
+
+            var loadMoreBtn = container.querySelector('#git-blog-loadmore');
+            if (loadMoreBtn) {
+              loadMoreBtn.onclick = function () {
+                currentPage++;
+                loadCommits(container, currentPage);
+              };
+            }
+
+            loadCommits(container, currentPage);
+            return;
+          }
+
+          // 2. 章ページでの節フォーカス処理
+          var hash = window.location.hash || '';
+          var verseMatch = hash.match(/[?&]verse=(\d+)/);
+          if (verseMatch) {
+            var targetVerse = verseMatch[1];
+            setTimeout(function() {
+              var contentEl = document.querySelector('.markdown-section');
+              if (!contentEl) return;
+
+              var candidates = contentEl.querySelectorAll('blockquote, p, strong, li');
+              var foundEl = null;
+              var regex = new RegExp('(^|\\s|[*])' + targetVerse + '\\.\\s');
+              for (var i = 0; i < candidates.length; i++) {
+                var el = candidates[i];
+                var text = el.textContent || '';
+                if (regex.test(text)) {
+                  var bq = el.closest('blockquote');
+                  foundEl = bq || el;
+                  break;
+                }
+              }
+
+              if (foundEl) {
+                foundEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                foundEl.classList.remove('git-focus-highlight');
+                void foundEl.offsetWidth;
+                foundEl.classList.add('git-focus-highlight');
+              }
+            }, 300);
+          }
+        });
+      }
+
+      window.$docsify = window.$docsify || {};
+      window.$docsify.plugins = (window.$docsify.plugins || []).concat(gitBlogPlugin);
+    })();
+  </script>
 </body>
 </html>
